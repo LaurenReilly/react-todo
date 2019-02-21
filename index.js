@@ -26,7 +26,7 @@ class Form extends Component {
     handleChange(e) {
         this.setState({inputText: e.target.value})
     }
-//changing isCompleted value on individual todo items when their check icon is clicked  
+//changing isCompleted value on individual todo items when their check icon is clicked 
     toggleIsCompleted(index) {
         this.setState({
             todos: this.state.todos.map((todo, i) => {
@@ -44,17 +44,26 @@ class Form extends Component {
             <div className="m-5 m-auto" style={{width:"90%"}}>
                 <h1 className="text-center my-5">What do you need to DO?</h1>
                 <div className="m-auto" style ={{width:"90%"}}>
-                    <form className="m-auto rounded d-flex flex-column align-content-center justify-content-center" style ={{width:"300px", border:"5px solid green"}} onSubmit={(e) => this.handleSubmit(e)}>
-                        <input type="text" className="m-2" style ={{width:"270px"}} value={this.state.inputText} onChange={(e) => this.handleChange(e)} />
+                    <form className="m-auto rounded d-flex flex-column align-content-center justify-content-center"
+                          style ={{width:"300px", border:"5px solid green"}} 
+                          onSubmit={(e) => this.handleSubmit(e)}>
+                        <input type="text" 
+                               className="m-2" 
+                               style ={{width:"270px"}} 
+                               value={this.state.inputText} 
+                               onChange={(e) => this.handleChange(e)} />
                         <button className="m-2 btn btn-success btn-lg" type="submit">SUBMIT</button>
                     </form>
                 </div>
-                    <div className="m-2 rounded" style={{backgroundColor: "rgba(110, 198, 239, 0.5)"}}>
-                        <h2 className="px-5" style={{backgroundColor: "rgb(110, 198, 239)"}}>Todo:</h2>
+                    <div className="m-2 rounded" 
+                         style={{backgroundColor: "rgba(110, 198, 239, 0.5)"}}>
+                        <h2 className="px-5" 
+                            style={{backgroundColor: "rgb(110, 198, 239)"}}>Todo:</h2>
                         {this.state.todos.map((todo, index) => {
                             if (!todo.isCompleted) {
                                 return (
-                                    <TodoList key={index} 
+                                    <TodoList 
+                                          key={index} 
                                           isCompleted={todo.isCompleted} 
                                           text={todo.todoText} 
                                           toggle={() => this.toggleIsCompleted(index)} />
@@ -66,12 +75,15 @@ class Form extends Component {
                             }
                         )}
                     </div>
-                    <div className="m-2 text-muted rounded" style={{backgroundColor: "rgba(106, 232, 138, 0.5)"}}>
-                        <h2 style={{color:"black", backgroundColor:"rgb(106, 232, 138)"}} className="px-5">Todone:</h2>
+                    <div className="m-2 text-muted rounded" 
+                         style={{backgroundColor: "rgba(106, 232, 138, 0.5)"}}>
+                        <h2 style={{color:"black", backgroundColor:"rgb(106, 232, 138)"}} 
+                            className="px-5">Todone:</h2>
                         {this.state.todos.map((todo, index) => {
                             if (todo.isCompleted) {
                                 return (
-                                    <TodoList key={index} 
+                                    <TodoList 
+                                          key={index} 
                                           isCompleted={todo.isCompleted} 
                                           text={todo.todoText} 
                                           toggle={() => this.toggleIsCompleted(index)} />
@@ -98,11 +110,6 @@ let TodoList = (props) => {
         
     )
 }
-
-
-
-
-
 
 
 ReactDOM.render(<Form/>, document.getElementById('root'));
