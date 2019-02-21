@@ -91,12 +91,10 @@ class Form extends Component {
                             } else {
                                 return null;
                             }
-
-                            }
+                        }
                         )}
                     </div>
             </div>
-
         )
     }
 }
@@ -106,8 +104,7 @@ let TodoList = (props) => {
         <div className="d-flex m-2 " style={{width:"60%"}}>
             <h3 className="mx-2" style={{}}>{props.text}</h3>
             {props.isCompleted ? <i className="far fa-2x fa-check-square" onClick={() => props.toggle()}></i> : <i className="far fa-2x fa-square" onClick={() => props.toggle()}></i> } 
-        </div>
-        
+        </div>   
     )
 }
 
